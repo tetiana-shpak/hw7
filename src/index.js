@@ -1,18 +1,18 @@
-let date = document.querySelector("p.date");
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let toDay = days[now.getDay()];
-date.innerHTML = `${toDay}  ${now.toLocaleTimeString()}`;
+// let date = document.querySelector("p.date");
+// let now = new Date();
+// let days = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
+// let toDay = days[now.getDay()];
+// date.innerHTML = `${toDay}  ${now.toLocaleTimeString()}`;
 
-//1
+// 1;
 
 // function weather(response) {
 //   let name = document.querySelector(".city");
@@ -22,36 +22,46 @@ date.innerHTML = `${toDay}  ${now.toLocaleTimeString()}`;
 //   tempCelc.innerHTML = temperature;
 // }
 
-// function temp(event) {
-//   event.preventDefault();
-//   let input = document.querySelector("input");
-//   let city = `${input.value}`;
-//   let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-//   axios.get(apiUrl).then(weather);
-// }
-// let search = document.querySelector("img.search");
-// search.addEventListener("click", temp);
+function formatDate(timestemp) {
+  let date = new Date(timestemp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
-//2
-let currentButton = document.querySelector(".current-temp");
-currentButton.addEventListener("click", getCurrentPosition);
-function getCurrentPosition(event) {
+function temp(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(api);
-}
+  let input = document.querySelector("input");
+  let city = `${input.value}`;
+  let apiKey = "a5bac64o95729tbfdbbf9236395b03aa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
-function api(position) {
-  let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=daily&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(weather);
 }
+let search = document.querySelector("img.search");
+search.addEventListener("click", temp);
 
-function showWeather(response) {
-  let city = document.querySelector(".city");
-  city.innerHTML = response.data.timezone;
-  let temperature = Math.round(response.data.current.temp);
-  let tempCelc = document.querySelector(".degree span");
-  tempCelc.innerHTML = temperature;
-  console.log(response);
+function weather(response) {
+  let cityElement = document.querySelector(".city");
+  cityElement.innerHTML = response.data.city;
+  let descriptionElement = document.querySelector(".description");
+  descriptionElement.innerHTML = response.data.condition.description;
+  let temperatureElement = document.querySelector(".degree span");
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  let windElement = document.querySelector(".wind");
+  windElement.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+  let humidityElement = document.querySelector(".humidity");
+  humidityElement.innerHTML = `Humidity: ${response.data.temperature.humidity} %`;
+  let dateElement = document.querySelector(".date");
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
 }

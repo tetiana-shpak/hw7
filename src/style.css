@@ -29,9 +29,7 @@ body {
   box-shadow: 2px 2px 5px #2a120a;
   transition: all 300ms ease;
 }
-.wind {
-  text-align: center;
-}
+
 .cards .col {
   border: 2px solid #2e9afe;
   padding: 15px 10px;
@@ -44,4 +42,7 @@ body {
 }
 .cards {
   column-gap: 10px;
+}
+.description::first-letter {
+  text-transform: capitalize;
 }
