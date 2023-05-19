@@ -22,6 +22,10 @@ body {
   box-shadow: 2px 2px 5px #2a120a;
   transition: all 300ms ease;
 }
+p {
+  margin-bottom: 3px;
+  opacity: 0.8;
+}
 .row {
   margin-bottom: 15px;
 }
@@ -30,19 +34,6 @@ body {
   transition: all 300ms ease;
 }
 
-.cards .col {
-  border: 2px solid #2e9afe;
-  padding: 15px 10px;
-  column-gap: 10px;
-  transition: all 300ms ease;
-}
-.cards .col:hover {
-  border-color: blue;
-  box-shadow: 2px 2px 5px blue;
-}
-.cards {
-  column-gap: 10px;
-}
 .description::first-letter {
   text-transform: capitalize;
 }

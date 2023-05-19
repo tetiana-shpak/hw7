@@ -39,19 +39,21 @@ function formatDate(timestemp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function temp(event) {
-  event.preventDefault();
-  let input = document.querySelector("input");
-  let city = `${input.value}`;
+function search(city) {
   let apiKey = "a5bac64o95729tbfdbbf9236395b03aa";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-
-  axios.get(apiUrl).then(weather);
+  axios.get(apiUrl).then(weatherDisplay);
 }
-let search = document.querySelector("img.search");
-search.addEventListener("click", temp);
 
-function weather(response) {
+function handleSubmit(event) {
+  event.preventDefault();
+  let input = document.querySelector("input");
+  search(input.value);
+}
+let searchElement = document.querySelector("img.search");
+searchElement.addEventListener("click", handleSubmit);
+
+function weatherDisplay(response) {
   console.log(response);
   let cityElement = document.querySelector(".city");
   cityElement.innerHTML = response.data.city;

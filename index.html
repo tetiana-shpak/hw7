@@ -21,7 +21,11 @@
         <div class="row">
           <form>
             <div class="col search d-flex">
-              <input type="text" placeholder="Enter your city..." />
+              <input
+                type="text"
+                placeholder="Enter your city..."
+                autocomplete="off"
+              />
               <button>
                 <img
                   class="search"
@@ -35,11 +39,9 @@
         </div>
         <div class="row">
           <div class="col left">
-            <h2 class="city">Kryvyi Rih</h2>
-            <p class="description">Description</p>
-          </div>
-          <div class="col right d-flex justify-content-end align-items-center">
+            <h2 class="city">City</h2>
             <p>Last updated at: <span class="date"></span></p>
+            <p class="description">Description</p>
           </div>
         </div>
         <div class="row">
@@ -53,7 +55,7 @@
           </div>
         </div>
       </div>
-      <a href="#">Link to my repositpry</a>
+      <a href="#">Link to my repository</a>
     </div>
     <script src="./src/index.js"></script>
   </body>
