@@ -52,6 +52,7 @@ let search = document.querySelector("img.search");
 search.addEventListener("click", temp);
 
 function weather(response) {
+  console.log(response);
   let cityElement = document.querySelector(".city");
   cityElement.innerHTML = response.data.city;
   let descriptionElement = document.querySelector(".description");
@@ -64,4 +65,7 @@ function weather(response) {
   humidityElement.innerHTML = `Humidity: ${response.data.temperature.humidity} %`;
   let dateElement = document.querySelector(".date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
+  let iconElement = document.querySelector(".icon");
+  iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
+  iconElement.setAttribute("alt", `${response.data.condition.description}`);
 }
