@@ -1,28 +1,29 @@
 body {
   font-size: 17px;
-  font-family: fantasy;
+  font-family: sans-serif;
   color: #2e2e2e;
 }
 .container {
-  padding-top: 60px;
+  padding-top: 45px;
 }
 .block {
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
-  border: 4px solid grey;
+  border: 3px solid grey;
   padding: 30px 20px;
   box-shadow: 5px 5px 10px #424242;
 }
 .search input {
   margin-right: 10px;
   padding: 10px;
-  width: 250px;
+  width: 320px;
 }
 .search input:hover {
-  border-color: #2a120a;
+  box-shadow: 2px 2px 5px #2a120a;
+  transition: all 300ms ease;
 }
 .row {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .search button:hover {
   box-shadow: 2px 2px 5px #2a120a;
