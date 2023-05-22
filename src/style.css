@@ -37,3 +37,18 @@ p {
 .description::first-letter {
   text-transform: capitalize;
 }
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -10px;
+}
+.units .active {
+  color: #2a120a;
+  text-decoration: none;
+  cursor: default;
+}
+.repository {
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}

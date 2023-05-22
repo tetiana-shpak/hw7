@@ -47,7 +47,13 @@
         <div class="row">
           <div class="col left d-flex align-items-center">
             <img src="./images/cloud.png" alt="" width="60px" class="icon" />
-            <h2 class="degree"><span>16</span>°C</h2>
+            <h2 class="degree">
+              <span class="temp"></span>
+              <span class="units"
+                ><a href="#" class="celsius active">°C</a> |
+                <a href="#" class="fahrenheit">°F</a></span
+              >
+            </h2>
           </div>
           <div class="col right">
             <p class="wind">Wind</p>
@@ -55,7 +61,7 @@
           </div>
         </div>
       </div>
-      <a href="#">Link to my repository</a>
+      <a href="#" class="repository">Link to my repository</a>
     </div>
     <script src="./src/index.js"></script>
   </body>
