@@ -1,29 +1,6 @@
-// let date = document.querySelector("p.date");
-// let now = new Date();
-// let days = [
-//   "Sunday",
-//   "Monday",
-//   "Tuesday",
-//   "Wednesday",
-//   "Thursday",
-//   "Friday",
-//   "Saturday",
-// ];
-// let toDay = days[now.getDay()];
-// date.innerHTML = `${toDay}  ${now.toLocaleTimeString()}`;
-
-// 1;
-
-// function weather(response) {
-//   let name = document.querySelector(".city");
-//   name.innerHTML = response.data.name;
-//   let temperature = Math.round(response.data.main.temp);
-//   let tempCelc = document.querySelector(".degree span");
-//   tempCelc.innerHTML = temperature;
-// }
-
 function formatDate(timestemp) {
   let date = new Date(timestemp);
+  console.log(date);
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let days = [
