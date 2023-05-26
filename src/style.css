@@ -52,3 +52,20 @@ p {
   display: block;
   margin-top: 15px;
 }
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.6;
+}
+.forecast-temperature {
+  font-size: 14px;
+}
+.forecast-temperature-max {
+}
+.forecast-temperature-min {
+  opacity: 0.6;
+}
