@@ -16,6 +16,30 @@ function formatDate(timestemp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = ` <div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+              <div class="weather-forecast-date">${day}</div>
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                alt="description"
+                width="50px"
+              />
+              <div class="forecast-temperature">
+                <span class="forecast-temperature-max"> 18° </span>
+                <span class="forecast-temperature-min"> 10° </span>
+              </div>
+              </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "a5bac64o95729tbfdbbf9236395b03aa";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -75,3 +99,4 @@ let celsiusElement = document.querySelector(".celsius");
 celsiusElement.addEventListener("click", showCelsius);
 
 let celsiusTemperature = null;
+displayForecast();
