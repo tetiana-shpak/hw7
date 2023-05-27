@@ -16,7 +16,14 @@ function formatDate(timestemp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "a5bac64o95729tbfdbbf9236395b03aa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = ` <div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -70,6 +77,7 @@ function weatherDisplay(response) {
   let iconElement = document.querySelector(".icon");
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   iconElement.setAttribute("alt", `${response.data.condition.description}`);
+  getForecast(response.data.city);
 }
 
 function calculateFahrenheit(event) {
@@ -99,4 +107,3 @@ let celsiusElement = document.querySelector(".celsius");
 celsiusElement.addEventListener("click", showCelsius);
 
 let celsiusTemperature = null;
-displayForecast();
