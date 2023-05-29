@@ -29,7 +29,6 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = ` <div class="row">`;
@@ -72,7 +71,6 @@ function handleSubmit(event) {
 }
 
 function weatherDisplay(response) {
-  console.log(response);
   let cityElement = document.querySelector(".city");
   cityElement.innerHTML = response.data.city;
   let descriptionElement = document.querySelector(".description");
@@ -119,3 +117,4 @@ let celsiusElement = document.querySelector(".celsius");
 celsiusElement.addEventListener("click", showCelsius);
 
 let celsiusTemperature = null;
+search("Kyiv");
